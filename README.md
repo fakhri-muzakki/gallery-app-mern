@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gallery Product CRUD App
 
-## Getting Started
+A modern **CRUD (Create, Read, Update, Delete) single-page application** built as a frontend portfolio project.
+This application demonstrates **real-world frontend practices**, including optimistic updates, clean UI architecture, and integration with a serverless REST API.
 
-First, run the development server:
+The main goal of this project is not only functionality, but also **UX quality, responsiveness, and maintainable frontend code**.
+
+---
+
+## ✨ Features
+
+- Display product data in a responsive grid / list
+- Create, update, and delete products
+- Optimistic UI updates for a faster user experience
+- Dark theme interface
+- Accessible UI components (keyboard & screen-reader friendly)
+- Client-side form validation
+- Loading, error, and disabled states to prevent double actions
+- Toast-based feedback for user actions
+
+---
+
+## ⚡ Optimistic Update
+
+This project implements **optimistic updates**, meaning:
+
+- UI updates immediately after a user action (create / update / delete)
+- No need to wait for the server response to reflect changes
+- If the API request fails, the UI state is reverted and an error message is shown
+
+This approach improves perceived performance and provides a smoother user experience, which is commonly used in **production-grade applications**.
+
+---
+
+## 🛠 Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **UI Library**: React 19
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Icons**: lucide-react
+- **Form Validation**: Valibot
+- **Notifications**: react-hot-toast
+- **Backend**: REST API (Express.js, Serverless)
+
+---
+
+## 🌐 API Integration
+
+This frontend consumes a RESTful API deployed as a **serverless backend**.
+
+**Base API URL (Production):**
+
+```
+https://api-gallery-image.vercel.app/api
+```
+
+**Products Endpoint:**
+
+```
+GET /products
+POST /products
+PUT /products/:id
+DELETE /products/:id
+```
+
+All API responses follow a consistent JSON format:
+
+```json
+{
+  "success": true,
+  "message": "string",
+  "data": "object | array | null"
+}
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/fakhri-muzakki/crud-mern.git
+cd crud-mern
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open your browser and visit:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📁 Project Structure (Simplified)
 
-To learn more about Next.js, take a look at the following resources:
+```text
+app/            # Next.js App Router
+components/     # Reusable UI components
+libs/           # API & helper utilities
+schemas/        # Valibot validation schemas
+types/          # Shared TypeScript types
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✅ Best Practices Applied
 
-## Deploy on Vercel
+- Type-safe API consumption with TypeScript
+- Schema-based validation using Valibot
+- Stateless frontend logic (serverless-ready)
+- Optimistic state management
+- Clear separation between UI, logic, and API layers
+- Production-oriented folder structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📌 Notes
+
+- This project is part of a **personal MERN Stack learning journey**
+- Designed to be easily extended with authentication or pagination
+- Suitable as a portfolio project demonstrating modern frontend skills
